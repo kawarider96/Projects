@@ -1,21 +1,23 @@
-from database import Database
+from Database.database import Database
 from pprint import pprint
 import json
-from Exceptions import WrongSqlCommandError, DbConnectionError, DbExecutionError
+from Exceptions.Exceptions import WrongSqlCommandError, DbConnectionError, DbExecutionError
 from Helpers.dbCommands import DatabaseInfoCommands
 from Project.Controller.ProjectController import ProjectController
 from Project.Repositories.ProjectRepository import ProjectRepository
 from Project.Services.ProjectService import ProjectService  
 
 db = Database()
-db_info_commands = DatabaseInfoCommands(db)
-ProjectRepo = ProjectRepository(db)
-ProjectService = ProjectService(ProjectRepo)
-project = ProjectController(ProjectService)
+
 
 try:
     db.connect()
 
+    db_info_commands = DatabaseInfoCommands(db)
+    ProjectRepo = ProjectRepository(db)
+    ProjectService = ProjectService(ProjectRepo)
+    project = ProjectController(ProjectService)
+    
 except DbConnectionError as e:
     print(e)
     exit()
