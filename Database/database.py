@@ -1,5 +1,5 @@
 import psycopg2
-from Exceptions.Exceptions import DbConnectionError, DbExecutionError, WrongSqlCommandError
+from Global.Exceptions.Exceptions import DbConnectionError, DbExecutionError, WrongSqlCommandError
 import os
 from pathlib import Path
 from dotenv import load_dotenv

@@ -1,4 +1,4 @@
-from Project.Services.ProjectService import ProjectService
+from Domains.Project.Services.ProjectService import ProjectService
 
 class ProjectController:
     def __init__(self, service: ProjectService):
